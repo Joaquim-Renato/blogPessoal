@@ -62,6 +62,7 @@ public class Postagem {
 	}
 	public void setDate(Date date) {
 		this.date = date;
+		
 	}
 	public Tema getTema() {
 		return tema;
@@ -69,4 +70,7 @@ public class Postagem {
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
+	
+	
 }
+
