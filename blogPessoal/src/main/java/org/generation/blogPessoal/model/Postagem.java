@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
+@Entity // Cria a tabela
 @Table(name = "postagem")
 public class Postagem {
 
@@ -23,12 +23,12 @@ public class Postagem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@NotNull
-	@Size(min = 5, max = 25)
+	@NotNull (message = "O Título é obrigatorio!!")
+	@Size(min = 5, max = 25, message = "O atributo titulo deve conter entre 5 e 25 caracteres!!")
 	private String titulo;
 	
-	@NotNull
-	@Size(min = 10, max = 500)
+	@NotNull (message = "O texto é obrigatorio!!")
+	@Size(min = 10, max = 500, message = "O atributo texto deve conter entre 10 e 500 caracteres!!")
 	private String texto;
 	
 	@Temporal(TemporalType.TIMESTAMP)
