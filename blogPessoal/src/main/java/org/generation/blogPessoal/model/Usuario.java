@@ -39,6 +39,24 @@ public class Usuario {
 	private String foto;
 	
 	
+	public Usuario(long id,
+			@NotNull(message = "O atributo Nome é Obrigatório!") @Size(min = 3, max = 100, message = "O atributo nome deve conter no mínimo 03 e no máximo 100 caracteres") String nome,
+			@NotNull(message = "O atributo Usuario é Obrigatório!") @Email(message = "O atributo usuario deve coter um email válido!") String usuario,
+			@NotBlank(message = "O atributo Senha é Obrigatório!") @Size(min = 8, message = "O atributo senha deve conter no mínimo 08 caracteres") String senha,
+			String foto, List<Postagem> postagem) {
+		this.id = id;
+		this.nome = nome;
+		this.usuario = usuario;
+		this.senha = senha;
+		this.foto = foto;
+		this.postagem = postagem;
+		
+		
+	}
+
+	public Usuario() {
+	}
+
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> postagem;
